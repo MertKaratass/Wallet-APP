@@ -18,6 +18,7 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
     <header class="text-warning text-center display-5 my-4">
@@ -26,13 +27,15 @@
 
     <main class="container" style="max-width: 800px">
       <form id="harcama-formu" class="row g-3 p-3 mt-4 border rounded-4 m-0">
-        <h4 class="text-center">Harcama Formu</h4>
+        <h4 class="text-center text-white">Harcama Formu</h4>
         <div class="col-6">
-          <label for="tarih" class="form-label">Tarih</label>
+          <label for="tarih" class="form-label text-white">Tarih</label>
           <input type="date" class="form-control" id="tarih" required />
         </div>
         <div class="col-6">
-          <label for="miktar" class="form-label">Harcama Miktar</label>
+          <label for="miktar" class="form-label text-white"
+            >Harcama Miktar</label
+          >
           <input
             type="number"
             class="form-control"
@@ -44,7 +47,9 @@
           />
         </div>
         <div class="col-12">
-          <label for="harcama-alani" class="form-label">Harcama Alanı</label>
+          <label for="harcama-alani" class="form-label text-white"
+            >Harcama Alanı</label
+          >
           <input
             type="text"
             class="form-control"
