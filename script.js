@@ -59,7 +59,9 @@ ekleFormu.addEventListener("submit", function (event) {
   const gelirValue = parseFloat(gelirInput.value);
 
   const geliriniz = document.querySelector("#geliriniz");
-  geliriniz.innerHTML = `<td id="geliriniz" style="width: 100px">${gelirValue}</td>`;
+  geliriniz.innerHTML = `<td id="geliriniz" style="width: 100px">
+    ${gelirValue}
+  </td>`;
 
   kalan = gelirValue - toplamGider;
 
@@ -82,7 +84,9 @@ temizleBtn.addEventListener("click", function () {
   gideriniz.innerHTML = `<td id="gideriniz">${toplamGider.toFixed(2)}</td>`;
 
   let geliriniz = document.getElementById("geliriniz");
-  geliriniz.innerHTML = `<td id="geliriniz" style="width: 100px">0</td>`;
+  geliriniz.innerHTML = `<td id="geliriniz" style="width: 100px">
+    0
+  </td>`;
 
   kalan = 0;
   let kalanPara = document.getElementById("kalan");
@@ -96,7 +100,6 @@ function deleteRow(btn) {
   const harcamaValue = parseFloat(
     row.querySelector("td:nth-child(3)").innerText
   );
-
   toplamGider -= harcamaValue;
 
   let gideriniz = document.querySelector("#gideriniz");
@@ -109,6 +112,7 @@ function deleteRow(btn) {
   kalanPara.innerHTML = `<td id="kalan">${kalan.toFixed(2)}</td>`;
 
   row.parentNode.removeChild(row);
+
   saveDataToLocalStorage();
 }
 
@@ -131,7 +135,9 @@ function loadDataFromLocalStorage() {
 
   let gelirValue = parseFloat(localStorage.getItem("gelirValue")) || 0;
   let geliriniz = document.querySelector("#geliriniz");
-  geliriniz.innerHTML = `<td id="geliriniz" style="width: 100px">${gelirValue}</td>`;
+  geliriniz.innerHTML = `<td id="geliriniz" style="width: 100px">
+    ${gelirValue}
+  </td>`;
 
   let harcamaBodyHTML = localStorage.getItem("harcamaBodyHTML") || "";
   let harcamaBody = document.querySelector("#harcama-body");
@@ -139,5 +145,7 @@ function loadDataFromLocalStorage() {
 
   kalan = gelirValue - toplamGider;
   let kalanPara = document.querySelector("#kalan");
-  kalanPara.innerHTML = <td id="kalan">${kalan.toFixed(2)}</td>;
+  kalanPara.innerHTML = `<td id="kalan">${kalan.toFixed(2)}</td>`;
 }
+
+loadDataFromLocalStorage();
