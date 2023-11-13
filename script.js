@@ -49,6 +49,7 @@ harcamaFormu.addEventListener("submit", function (event) {
     let kalanPara = document.querySelector("#kalan");
     kalanPara.innerHTML = `<td id="kalan">${kalan.toFixed(2)}</td>`;
   }
+  saveDataToLocalStorage();
 });
 
 ekleFormu.addEventListener("submit", function (event) {
@@ -64,6 +65,8 @@ ekleFormu.addEventListener("submit", function (event) {
 
   let kalanPara = document.querySelector("#kalan");
   kalanPara.innerHTML = `<td id="kalan">${kalan.toFixed(2)}</td>`;
+
+  saveDataToLocalStorage();
 });
 
 temizleBtn.addEventListener("click", function () {
@@ -84,6 +87,8 @@ temizleBtn.addEventListener("click", function () {
   kalan = 0;
   let kalanPara = document.getElementById("kalan");
   kalanPara.innerHTML = `<td id="kalan">${kalan.toFixed(2)}</td>`;
+
+  localStorage.clear();
 });
 
 function deleteRow(btn) {
@@ -104,3 +109,31 @@ function deleteRow(btn) {
 
   row.parentNode.removeChild(row);
 }
+
+function saveDataToLocalStorage() {
+  localStorage.setItem("toplamGider", toplamGider.toFixed(2));
+  localStorage.setItem(
+    "gelirValue",
+    document.querySelector("#geliriniz").innerText
+  );
+  localStorage.setItem(
+    "harcamaBodyHTML",
+    document.querySelector("#harcama-body").innerHTML
+  );
+}
+
+function loadDataFromLocalStorage() {
+  toplamGider = parseFloat(localStorage.getItem("toplamGider")) || 0;
+  let gideriniz = document.querySelector("#gideriniz");
+  gideriniz.innerHTML = `<td id="gideriniz">${toplamGider.toFixed(2)}</td>`;
+
+  let gelirValue = parseFloat(localStorage.getItem("gelirValue")) || 0;
+  let geliriniz = document.querySelector("#geliriniz");
+  geliriniz.innerHTML = `<td id="geliriniz" style="width: 100px">${gelirValue}</td>`;
+
+  let harcamaBodyHTML = localStorage.getItem("harcamaBodyHTML") || "";
+  let harcamaBody = document.querySelector("#harcama-body");
+  harcamaBody.innerHTML = harcamaBodyHTML;
+}
+
+loadDataFromLocalStorage();
