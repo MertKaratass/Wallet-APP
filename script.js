@@ -96,6 +96,7 @@ function deleteRow(btn) {
   const harcamaValue = parseFloat(
     row.querySelector("td:nth-child(3)").innerText
   );
+
   toplamGider -= harcamaValue;
 
   let gideriniz = document.querySelector("#gideriniz");
@@ -108,6 +109,7 @@ function deleteRow(btn) {
   kalanPara.innerHTML = `<td id="kalan">${kalan.toFixed(2)}</td>`;
 
   row.parentNode.removeChild(row);
+  saveDataToLocalStorage();
 }
 
 function saveDataToLocalStorage() {
