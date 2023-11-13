@@ -136,6 +136,8 @@ function loadDataFromLocalStorage() {
   let harcamaBodyHTML = localStorage.getItem("harcamaBodyHTML") || "";
   let harcamaBody = document.querySelector("#harcama-body");
   harcamaBody.innerHTML = harcamaBodyHTML;
-}
 
-loadDataFromLocalStorage();
+  kalan = gelirValue - toplamGider;
+  let kalanPara = document.querySelector("#kalan");
+  kalanPara.innerHTML = <td id="kalan">${kalan.toFixed(2)}</td>;
+}
